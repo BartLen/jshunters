@@ -1,0 +1,48 @@
+@import "src/styles/fonts";
+@import "src/styles/reset";
+@import "src/styles/variables";
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: $-color-form;
+  box-shadow: 1px 2px 2px 10px $-color-form;
+  .container {
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 230px;
+      height: 60px;
+      margin-left: 20px;
+    }
+    .info {
+      display: flex;
+      font-size: 12px;
+      .contact {
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+        line-height: 20px;
+      }
+      .rodo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 150px;
+        a{
+          text-transform: uppercase;
+          padding-bottom: 10px;
+        }
+        a:hover {
+          color: $-color-orange;
+          transition: 2ms;
+        }
+      }
+    }
+  }
+}

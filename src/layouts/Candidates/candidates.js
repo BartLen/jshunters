@@ -4,7 +4,7 @@ import './candidates.scss';
 export default function Candidates() {
     return (
         <div>
-            Dla Firm
+            Dla Kandydatów
         </div>
     );
 }

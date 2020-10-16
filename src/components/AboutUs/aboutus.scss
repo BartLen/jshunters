@@ -1,0 +1,39 @@
+@import "src/styles/fonts";
+@import "src/styles/reset";
+@import "src/styles/variables";
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.aboutus {
+  background-color: $-color-background;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 100px;
+  &__text {
+    font-weight: 400;
+    color: $-color-main;
+    font-size: 25px;
+    padding-top: 50px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    .aboutus__step1 {
+      border-right: 1px solid $-color-main;
+      border-left: 1px solid $-color-main;
+      width: 300px;
+      .logo1 {
+        width: 100px;
+        height: 115px;
+        padding-bottom: 20px;
+      }
+      .logo2 {
+        width: 100px;
+        height: 115px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
