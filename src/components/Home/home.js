@@ -1,11 +1,11 @@
 import React from "react";
-import './aboutus.scss';
-import file1 from '../../images/array.jpg';
-import file2 from '../../images/shoot.jpg';
+import './home.scss';
+import file1 from '../../images/test.png';
+import file2 from '../../images/stats.png';
+import file3 from '../../images/monitor.png';
+import file4 from '../../images/array.jpg';
 
-
-
-export default function AboutUs() {
+export default function Home() {
     return (
     <>
         <div className='aboutus'>
@@ -18,15 +18,15 @@ export default function AboutUs() {
                     <div className='text1'>Dobierz test do poziomu stanowiska</div>
                 </div>
                 <div className='aboutus__step1'>
-                    <img src={file2} className='logo2'/>
+                    <img src={file2} className='logo1'/>
                     <div className='text1'>Oszczędź do 80% czasu dzięki profesjonalnej weryfikacji technicznej</div>
                 </div>
                 <div className='aboutus__step1'>
-                    <img src={file1} className='logo1'/>
+                    <img src={file3} className='logo1'/>
                     <div className='text1'>Model współpracy dopasowany w 100% do Twoich potrzeb</div>
                 </div>
                 <div className='aboutus__step1'>
-                    <img src={file2} className='logo2'/>
+                    <img src={file4} className='logo1'/>
                     <div className='text1'>Zatrudniaj średnio w trzy tygodnie od startu!</div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import './footer.scss';
-import file from "../../images/java-script-logo-poziom.png";
+import file from "../../images/logo_2.png";
 
 export default function Footer() {
     return (

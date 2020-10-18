@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header/header";
 import Opening from "./components/Opening/opening";
-import AboutUs from "./components/AboutUs/aboutus";
+import Home from "./components/Home/home";
 import Footer from "./components/Footer/footer";
 import Companies from "./layouts/Companies/companies";
 import Candidates from "./layouts/Candidates/candidates";
@@ -22,23 +22,25 @@ function App() {
         <div className="App">
             <Router>
               <Header />
-              <Opening />
-              <AboutUs />
-              <Footer />
               <Switch>
-                <Route path="./Companies">
-                  <Companies />
+                <Route exact path='/home'>
+                  <Opening />
+                  <Home />
                 </Route>
-                <Route path="./Candidates">
+                <Route path="/companies">
+                  <Companies />
+                  </Route>
+                <Route path="/candidates">
                   <Candidates />
                 </Route>
-                <Route path="./Jobs">
+                <Route path="/jobs">
                   <Jobs />
                 </Route>
-                <Route path="./Contact">
+                <Route path="/contact">
                   <Contact />
                 </Route>
               </Switch>
+              <Footer />
             </Router>
         </div>
   );
