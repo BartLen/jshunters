@@ -1,0 +1,60 @@
+@import "src/styles/fonts";
+@import "src/styles/reset";
+@import "src/styles/variables";
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.offers {
+  width: 100%;
+  background-color: $-color-orange;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    .offers__example {
+      display: flex;
+      width: 80%;
+      justify-content: space-between;
+      border: 2px solid $-color-main;
+      border-radius: 10px;
+      background-color: $-color-background;
+      padding: 10px;
+      margin-bottom: 40px;
+      .offers__example__left {
+        display: flex;
+        flex-direction: column;
+        .offers__example__title {
+          color: $-color-main;
+          font-weight: 600;
+        }
+        .offers__example__town {
+          color: $-color-main;
+          font-size: 14px;
+        }
+        .offers__example__time {
+          color: $-color-main;
+          font-size: 14px;
+        }
+      }
+      .offers_example_right {
+        display: flex;
+        flex-direction: column-reverse;
+        .offers__example__btn {
+          color: $-color-background;
+          font-size: 16px;
+          padding: 5px 20px;
+          background-color: $-color-btn;
+          border-radius: 10px;
+        }
+        .offers__example__btn:hover {
+          border: 1px solid $-color-main;
+          background-color: $-color-blue;
+          transition: 2ms;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

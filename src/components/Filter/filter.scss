@@ -1,0 +1,66 @@
+@import "src/styles/fonts";
+@import "src/styles/reset";
+@import "src/styles/variables";
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.filter {
+  width: 100%;
+  background-image: url("../../images/opening.jpg");
+  background-size: cover;
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .filter__title {
+      color: $-color-main;
+      font-weight: 400;
+      font-size: 26px;
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .filter__select {
+      display: flex;
+      flex-direction: column;
+      label {
+        color: $-color-main;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .filter__select__town {
+        padding: 10px;
+        border: 1px solid $-color-form;
+        border-radius: 10px;
+        background-color: $-color-background;
+        margin-left: 100px;
+      }
+      .filter__select__stack {
+        padding: 10px;
+        border: 1px solid $-color-form;
+        border-radius: 10px;
+        background-color: $-color-background;
+        margin-left: 14px;
+      }
+      .filter__select__btn {
+        display: flex;
+        width: 100px;
+        justify-content: center;
+        padding: 5px 20px;
+        border: 1px solid $-color-main;
+        border-radius: 10px;
+        margin-bottom: 50px;
+        background-color: $-color-btn;
+        color: $-color-background;
+        font-size: 16px;
+      }
+      .filter__select__btn:hover {
+        border: 1px solid $-color-main;
+        background-color: $-color-blue;
+        transition: 2ms;
+        cursor: pointer;
+      }
+    }
+  }
+}

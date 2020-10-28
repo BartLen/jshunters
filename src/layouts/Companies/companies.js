@@ -1,12 +1,20 @@
 import React from 'react';
 import './companies.scss';
-import Header from "../../components/Header/header";
-import Footer from "../../components/Footer/footer";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import Opening_Company from "../../components/Opening_Company/opening_company";
+import ItWorks_Company from "../../components/ItWorks_Company/itworks_company";
+
+
 
 export default function Companies() {
     return (
-        <div>
-            Dla Firm
-        </div>
+        <Router>
+            <Opening_Company />
+            <ItWorks_Company />
+        </Router>
     );
 }

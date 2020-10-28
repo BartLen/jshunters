@@ -15,7 +15,7 @@ export default function Header() {
                     </div>
                     <nav>
                         <input type="checkbox" className="menu__btn" id="menu__btn"/>
-                            <label for="menu__btn" className="menu__toggle">
+                            <label htmlFor="menu__btn" className="menu__toggle">
                                 <span className='invisible'></span>
                                 <span className='invisible'></span>
                                 <span className='invisible'></span>
@@ -34,7 +34,7 @@ export default function Header() {
                                 <Link to='/jobs'><span className='nav__link'>Oferty pracy</span></Link>
                             </li>
                             <li className='nav__element'>
-                                <Link to='/contact'><span className='nav__link'>Kontakt</span></Link>
+                                <Link to='/login'><span className='nav__link'>Zaloguj się</span></Link>
                             </li>
                         </ul>
                     </nav>

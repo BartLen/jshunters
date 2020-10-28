@@ -1,0 +1,99 @@
+@import "src/styles/fonts";
+@import "src/styles/reset";
+@import "src/styles/variables";
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+
+.list {
+  width: 100%;
+  margin: 0 auto;
+  background-image: url("../../images/opening.jpg");
+  background-size: cover;
+  .container {
+    display: flex;
+    justify-content: space-around;
+    @include mobile {
+      flex-direction: column;
+    }
+    .list__text {
+      text-align: center;
+      padding: 25px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 50%;
+      color: $-color-main;
+      @include mobile {
+        width: 100%;
+      }
+      .list__text__1{
+        color: $-color-main;
+        font-size: 24px;
+        padding-bottom: 20px;
+      }
+      .list__text__2{
+        border: 2px solid $-color-main;
+        border-radius: 20px;
+        background-color: $-color-background;
+        padding: 10px 0 10px 0;
+        margin-bottom: 30px;
+      }
+    }
+    .list__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      background-color: $-color-orange;
+      margin: 125px 50px 50px 50px;
+      border-radius: 5px;
+      @include mobile {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .list__title {
+        padding: 20px 0 10px 0;
+      }
+      .list__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 25px;
+        width: 100%;
+        .list__form__input {
+          padding: 10px;
+          border: 1px solid $-color-form;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          width: 80%;
+        }
+        .list__form__input:hover{
+          border: 1px solid red;
+          transition: 2ms;
+        }
+        .list__form__btn {
+          text-transform: uppercase;
+          color: $-color-main;
+          font-size: 14px;
+          line-height: 19px;
+          padding: 10px 52px;
+          border: 1px solid $-color-form;
+          border-radius: 40px;
+          box-shadow: 0 3px 6px;
+          background-color: $-color-background;
+          margin-bottom: 65px;
+        }
+        .list__form__btn:hover {
+          cursor: pointer;
+          border: 1px solid red;
+          background-color: $-color-btn;
+          color: $-color-background;
+        }
+        .list__form__error {
+          font-size: 10px;
+          color: red;
+        }
+      }
+    }
+  }
+}
