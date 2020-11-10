@@ -7,7 +7,6 @@
 
 .header {
   height: 70px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
   background-color: $-color-background;
   display: flex;
   justify-content: center;
@@ -30,12 +29,11 @@
       }
     }
     &__link {
-      color: $-color-main;
+      color: $-color-btn;
       font-weight: 400;
       font-size: 14px;
       padding: 25px 15px 20px;
       border-bottom: 2px solid transparent;
-      letter-spacing: 0.1875rem;
       &:hover {
         color: $-color-orange;
         border-color: $-color-orange;

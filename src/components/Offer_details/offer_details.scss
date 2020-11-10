@@ -1,0 +1,57 @@
+@import "src/styles/fonts";
+@import "src/styles/reset";
+@import "src/styles/variables";
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.details {
+  width: 100%;
+  background-image: url("../../images/opening.jpg");
+  background-size: cover;
+  padding-bottom: 100px;
+  @include  mobile {
+    padding: 0 20px 50px 20px;
+  }
+  .container {
+    padding: 100px 0 0 0;
+    display: flex;
+    justify-content: center;
+    .details__info {
+      font-size: 14px;
+      color: $-color-main;
+      width: 900px;
+      .details__info__description {
+        padding-bottom: 20px;
+      }
+      .details__info__title {
+        text-decoration: underline;
+        font-weight: 600;
+        padding-bottom: 10px;
+      }
+      .details__info__requirements {
+        padding-bottom: 10px;
+        li {
+          list-style-type: disc;
+        }
+      }
+      .details__info__responsibilities {
+        padding-bottom: 10px;
+        li {
+          list-style-type: disc;
+        }
+      }
+      .details__info__skills {
+        padding-bottom: 10px;
+        li {
+          list-style-type: disc;
+        }
+      }
+      details__info__skills {
+        padding-bottom: 10px;
+        li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+}

@@ -6,8 +6,6 @@
 
 .registration {
   width: 100%;
-  background-image: url("../../images/opening.jpg");
-  background-size: cover;
   .container {
     display: flex;
     @include mobile {
@@ -95,6 +93,8 @@
       .list__title {
         padding: 20px 0 10px 0;
         color: $-color-background;
+        font-weight: 600;
+        font-size: 20px;
       }
 
       .list__form {

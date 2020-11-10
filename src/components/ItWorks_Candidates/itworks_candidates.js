@@ -18,9 +18,7 @@ export default function ItWorks_Candidates() {
                         <img src={file1} className='itworks__left__logo'/>
                         <div className='itworks__left__text'><span>Weryfikacja u klienta</span></div>
                         <img src={file1} className='itworks__left__logo'/>
-                        <div className='itworks__left__text'><span>Podpisanie kontarktu/umowy</span></div>
-                        <img src={file1} className='itworks__left__logo'/>
-                        <div className='itworks__left__text'><span>The End</span></div>
+                        <div className='itworks__left__text1'><span>Podpisanie kontraktu/umowy</span></div>
                     </div>
                     <div className='itworks__right'>
                         <img src={file} className='itworks__right__logo'/>

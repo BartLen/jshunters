@@ -4,12 +4,16 @@ import file1 from '../../images/test.png';
 import file2 from '../../images/stats.png';
 import file3 from '../../images/monitor.png';
 import file4 from '../../images/array.jpg';
+import file5 from '../../images/graphic.jpg'
 import Opening from "../Opening/opening";
 
 export default function Home() {
     return (
     <>
         <Opening/>
+        <div className='aboutus_img'>
+            <img src={file5} className='logo0'/>
+        </div>
         <div className='aboutus'>
             <div className='aboutus__text'>
                 Wreszcie możesz liczyć na kandydatów zweryfikowanych technicznie

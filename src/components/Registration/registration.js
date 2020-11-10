@@ -8,46 +8,53 @@ export default function Registration(){
     const [name,setName] = useState('');
     const [surname,setSurname] = useState('');
     const [mail, setMail] = useState ('');
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    const [login1, setLogin1] = useState('');
+    const [password1, setPassword1] = useState('');
+    const [login2, setLogin2] = useState('');
+    const [password2, setPassword2] = useState('');
 
     const [errorName, setErrorName] = useState("");
     const [errorSurname, setErrorSurname] = useState("");
     const [errorMail, setErrorMail] = useState("");
-    const [errorLogin, setErrorLogin] = useState('');
-    const [errorPassword, setErrorPassword] = useState('');
+    const [errorLogin1, setErrorLogin1] = useState('');
+    const [errorPassword1, setErrorPassword1] = useState('');
+    const [errorLogin2, setErrorLogin2] = useState('');
+    const [errorPassword2, setErrorPassword2] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!name.length <= 2) {
+        if (name.length <= 2) {
             setErrorName('Podaj Imię');
-            return;
         }
 
-        if (!surname.length <= 2) {
+        if (surname.length <= 2) {
             setErrorSurname('Podaj Nazwisko');
-            return;
         }
 
         if (!emailRegexp.test(mail)) {
             setErrorMail("Zły format adresu email");
-            return;
         }
 
-        if (login.length <=4) {
-            setErrorLogin('Login musi być > 4');
-            return;
+        if (login1.length <=6) {
+            setErrorLogin1('Login musi mieć min. 7 znaków');
         }
 
-        if (password.length <=4) {
-            setErrorPassword('Hasło musi być > 4');
-            return;
+        if (password1.length <=6) {
+            setErrorPassword1('Hasło musi mieć min. 7 znaków');
+        }
+
+        if (login2.length <=6) {
+            setErrorLogin2('Login musi mieć min. 7 znaków');
+        }
+
+        if (password2.length <=6) {
+            setErrorPassword2('Hasło musi mieć min. 7 znaków');
         }
 
         setErrorMail("");
 
-        firebase.auth().createUserWithEmailAndPassword(mail, password)
+        firebase.auth().createUserWithEmailAndPassword(mail, password1)
             .then(()=> {
             console.log('Added to firebase');
         }).catch(err => {
@@ -69,11 +76,11 @@ export default function Registration(){
                             <input className='list__form__input' type="text" value={surname} onChange={e => setSurname(e.target.value)} placeholder='Nazwisko'/>
                             {errorMail && <h1 className='list__form__error'>{errorMail}</h1>}
                             <input className='list__form__input' type="text" value={mail} onChange={e => setMail(e.target.value)} placeholder='E-mail'/>
-                            {errorLogin && <h1 className='list__form__error'>{errorLogin}</h1>}
-                            <input className='list__form__input' type="text" value={login} onChange={e => setLogin(e.target.value)} placeholder='Login'/>
-                            {errorPassword && <h1 className='list__form__error'>{errorPassword}</h1>}
-                            <input className='list__form__input' type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder='Hasło'/>
-                            <button className='list__form__btn' type="submit" >Zarejestruj</button>
+                            {errorLogin1 && <h1 className='list__form__error'>{errorLogin1}</h1>}
+                            <input className='list__form__input' type="text" value={login1} onChange={e => setLogin1(e.target.value)} placeholder='Login'/>
+                            {errorPassword1 && <h1 className='list__form__error'>{errorPassword1}</h1>}
+                            <input className='list__form__input' type="text" value={password1} onChange={e => setPassword1(e.target.value)} placeholder='Hasło'/>
+                            <button className='list__form__btn' type="submit" >Zarejestruj się</button>
                         </form>
                     </div>
                     <div className='registration__right'>
@@ -81,10 +88,10 @@ export default function Registration(){
                             Logowanie
                         </div>
                         <form className='list__form' onSubmit={handleSubmit}>
-                            {errorLogin && <h1 className='list__form__error'>{errorLogin}</h1>}
-                            <input className='list__form__input' type="text" value={login} onChange={e => setLogin(e.target.value)} placeholder='Login'/>
-                            {errorPassword && <h1 className='list__form__error'>{errorPassword}</h1>}
-                            <input className='list__form__input' type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder='Hasło'/>
+                            {errorLogin2 && <h1 className='list__form__error'>{errorLogin2}</h1>}
+                            <input className='list__form__input' type="text" value={login2} onChange={e => setLogin2(e.target.value)} placeholder='Login'/>
+                            {errorPassword2 && <h1 className='list__form__error'>{errorPassword2}</h1>}
+                            <input className='list__form__input' type="text" value={password2} onChange={e => setPassword2(e.target.value)} placeholder='Hasło'/>
                             <button className='list__form__btn' type="submit" >Zaloguj się</button>
                         </form>
                     </div>

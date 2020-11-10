@@ -9,37 +9,50 @@ export default function Opening_Company(){
     const [name, setName] = useState("");
     const [mail, setMail] = useState("");
     const [text, setText] = useState("");
+    const [success, setSuccess] = useState("");
     const [errorCompany, setErrorCompany] = useState("");
     const [errorName, setErrorName] = useState("");
     const [errorMail, setErrorMail] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let isValid = true;
 
         if (company.length <= 2) {
             setErrorCompany('Podaj Pełną Nazwę Firmy');
+            isValid = false;
         }
 
         if (name.length <= 2) {
             setErrorName('Podaj Pełne Imię i Nazwisko');
+            isValid = false;
         }
 
         if (!emailRegexp.test(mail)) {
             setErrorMail("Zły format adresu email");
+            isValid = false;
         }
+        if (isValid) {
+            firebase.firestore().collection('companies').doc().set({
+                company,
+                offers: [],
+                agreement: {
+                    name,
+                    mail,
+                    text
+                }
+            }).then(() => {
+                setSuccess("Wiadomość wysłana");
+                setCompany('')
+                setName('')
+                setMail('')
+                setText('')
+                /*console.log('Added to firebase');*/
+            }).catch(err => {
+                console.log(err);
+            })
+        }}
 
-        firebase.firestore().collection('companies').doc(company).set({
-            agreement: {
-                name,
-                mail,
-                text
-            }
-        }).then(()=> {
-            console.log('Added to firebase');
-        }).catch(err => {
-            console.log(err);
-        })
-    };
 
     return (
         <>
@@ -64,6 +77,7 @@ export default function Opening_Company(){
                             {errorMail && <h1 className='list__form__error'>{errorMail}</h1>}
                             <input className='list__form__input' type="text" value={mail} onChange={e => setMail(e.target.value)} placeholder='E-mail'/>
                             <textarea className='list__form__input' type="text" value={text} onChange={e =>setText(e.target.value)} placeholder='Wpisz wiadomość' rows='5'/>
+                            {success && <h2 className='list__form__success'>{success}</h2>}
                             <button className='list__form__btn' type="submit" >Wyślij</button>
                         </form>
                     </div>

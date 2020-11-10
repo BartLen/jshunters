@@ -2,15 +2,15 @@ import React, {useState} from "react";
 import '../Opening_Candid/opening_candid.scss';
 import {emailRegexp} from "../../helpers/regexp";
 import firebase from "firebase";
+import {v4} from 'uuid';
 
 
 export default function Opening_Candid() {
-    const [company, setCompany] = useState("");
     const [name, setName] = useState("");
     const [file, setFile] = useState();
     const [mail, setMail] = useState("");
     const [text, setText] = useState("");
-    const [errorCompany, setErrorCompany] = useState("");
+    const [success, setSuccess] = useState("");
     const [errorName, setErrorName] = useState("");
     const [errorMail, setErrorMail] = useState("");
     const [errorFile, setErrorFile] = useState("");
@@ -18,11 +18,6 @@ export default function Opening_Candid() {
     const handleSubmit = (e) => {
         e.preventDefault();
         let isValid = true;
-
-        if (company.length <= 3) {
-            setErrorCompany('Podaj Pełną Nazwę Firmy');
-            isValid = false;
-        }
 
         if (name.length <= 3) {
             setErrorName('Podaj Pełne Imię i Nazwisko');
@@ -34,20 +29,31 @@ export default function Opening_Candid() {
             isValid = false;
         }
 
-        if(!file){
+        if (!file) {
             setErrorFile("Brak pliku");
             isValid = false;
         }
 
-        if(isValid){
-            firebase.firestore().collection('companies').doc(company).set({
+        if (isValid) {
+            const storage = firebase.storage();
+            const uui = v4();
+            const fileRef = storage.ref(uui);
+            fileRef.put(file)
+            firebase.firestore().collection('candidates').doc().set({
                 agreement: {
-                    name,
                     mail,
-                    text
+                    text,
+                    filename: uui
                 }
             }).then(() => {
-                console.log('Added to firebase');
+                setSuccess("Wiadomość wysłana")
+                setName('')
+                setFile('')
+                setMail('')
+                setText('')
+               const fileRef = document.querySelector('input[type="file"]');
+                fileRef.value = '';
+
             }).catch(err => {
                 console.log(err);
             })
@@ -58,9 +64,9 @@ export default function Opening_Candid() {
     const fileInput = (e) => {
         e.preventDefault();
         const file = e.target.files[0];
-        if(file){
+        if (file) {
             setFile(file);
-        }else {
+        } else {
             setFile();
         }
 
@@ -92,9 +98,6 @@ export default function Opening_Candid() {
                             Wypełnij formularz
                         </div>
                         <form className='list__form' onSubmit={handleSubmit}>
-                            {errorCompany && <h1 className='list__form__error'>{errorCompany}</h1>}
-                            <input className='list__form__input' type="text" value={company}
-                                   onChange={e => setCompany(e.target.value)} placeholder='Nazwa Firmy'/>
                             {errorName && <h1 className='list__form__error'>{errorName}</h1>}
                             <input className='list__form__input' type="text" value={name}
                                    onChange={e => setName(e.target.value)} placeholder='Imię i Nazwisko'/>
@@ -108,6 +111,7 @@ export default function Opening_Candid() {
                                 <input className='list__form__input' type="file" onChange={fileInput}/>
                                 {errorFile && <h1 className='list__form__error'>{errorFile}</h1>}
                             </label>
+                            {success && <h2 className='list__form__success'>{success}</h2>}
                             <button className='list__form__btn' type="submit">Wyślij</button>
                         </form>
                     </div>

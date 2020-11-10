@@ -18,9 +18,7 @@ export default function ItWorks_Company() {
                         <img src={file1} className='itworks__left__logo'/>
                         <div className='itworks__left__text'><span>Prezentacja kandydatów</span></div>
                         <img src={file1} className='itworks__left__logo'/>
-                        <div className='itworks__left__text'><span>Przedstawienie oferty</span></div>
-                        <img src={file1} className='itworks__left__logo'/>
-                        <div className='itworks__left__text'><span>The End</span></div>
+                        <div className='itworks__left__text1'><span>Przedstawienie oferty</span></div>
                     </div>
                     <div className='itworks__right'>
                         <img src={file} className='itworks__right__logo'/>

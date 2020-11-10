@@ -8,8 +8,6 @@
 .list {
   width: 100%;
   margin: 0 auto;
-  background-image: url("../../images/opening.jpg");
-  background-size: cover;
   .container {
     display: flex;
     justify-content: space-around;
@@ -27,16 +25,19 @@
         width: 100%;
       }
       .list__text__1{
-        color: $-color-main;
+        color: $-color-btn;
         font-size: 24px;
+        font-weight: 600;
         padding-bottom: 20px;
       }
       .list__text__2{
-        border: 2px solid $-color-main;
-        border-radius: 20px;
-        background-color: $-color-background;
-        padding: 10px 0 10px 0;
-        margin-bottom: 30px;
+        font-weight: 600;
+        color: $-color-background;
+        border: 2px none $-color-btn;
+        border-radius: 15px;
+        background-color: $-color-orange;
+        padding: 15px;
+        margin-bottom: 20px;
       }
     }
     .list__right {
@@ -44,15 +45,18 @@
       flex-direction: column;
       align-items: center;
       width: 50%;
-      background-color: $-color-orange;
-      margin: 125px 50px 50px 50px;
-      border-radius: 5px;
+      background-color: $-color-btn;
+      margin: 50px 50px 50px 50px;
+      border-radius: 15px;
       @include mobile {
         width: 100%;
         margin: 0 auto;
       }
       .list__title {
         padding: 20px 0 10px 0;
+        font-weight: 600;
+        color: $-color-background;
+        font-size: 20px;
       }
       .list__form {
         display: flex;
@@ -60,28 +64,31 @@
         align-items: center;
         padding-top: 25px;
         width: 100%;
-        .list__form__input {
-          padding: 10px;
-          border: 1px solid $-color-form;
-          border-radius: 10px;
-          margin-bottom: 10px;
-          width: 80%;
-        }
-        .list__form__input:hover{
-          border: 1px solid red;
-          transition: 2ms;
-        }
+
+          .list__form__input {
+            padding: 10px;
+            border: 1px solid $-color-form;
+            background-color: $-color-background;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+          }
+
+          .list__form__input:hover {
+            border: 1px solid red;
+            transition: 2ms;
+          }
         .list__form__btn {
           text-transform: uppercase;
-          color: $-color-main;
+          color: $-color-background;
           font-size: 14px;
           line-height: 19px;
           padding: 10px 52px;
           border: 1px solid $-color-form;
           border-radius: 40px;
-          box-shadow: 0 3px 6px;
-          background-color: $-color-background;
+          background-color: $-color-orange;
           margin-bottom: 65px;
+          margin-top: 20px;
         }
         .list__form__btn:hover {
           cursor: pointer;
@@ -92,6 +99,10 @@
         .list__form__error {
           font-size: 10px;
           color: red;
+        }
+        .list__form__success {
+          font-size: 10px;
+          color: $-color-background;
         }
       }
     }
